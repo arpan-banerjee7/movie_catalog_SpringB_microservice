@@ -6,6 +6,10 @@ public class CatalogItem {
 	private int rating;
 	
 	
+	
+	public CatalogItem() {
+		
+	}
 	public CatalogItem(String name, String desc, int rating) {
 		super();
 		this.name = name;

@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.java.micro.movieinfoservice.model.Movie;
 
 @RestController
-@RequestMapping("/movie")
+@RequestMapping("/movies")
 public class MovieResource {
 
     @RequestMapping("/{movieId}")
-    public List<Movie> getCatalog(@PathVariable("movieId") String userId) {
-        return Collections.singletonList(new Movie("Don", "Test Desc"));
+    public Movie getCatalog(@PathVariable("movieId") String movieId) {
+        return new Movie(movieId, "Test Desc");
     }
 }

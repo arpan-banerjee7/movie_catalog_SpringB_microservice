@@ -1,6 +1,5 @@
 package com.java.micro.moviecatalogservice.resources;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.java.micro.moviecatalogservice.model.CatalogItem;
 import com.java.micro.moviecatalogservice.model.Movie;
-import com.java.micro.moviecatalogservice.model.Rating;
 import com.java.micro.moviecatalogservice.model.UserRating;
 
 @RestController

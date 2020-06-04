@@ -26,18 +26,18 @@ public class CatalogResource {
 
 		
  
-		UserRating userRating = restTemplate.getForObject("http://localhost:8083/ratingsdata/user/44", UserRating.class);
+		UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratingsdata/user/44", UserRating.class);
 
 	
 
 		return userRating.getUserRating().stream().map((rating) -> {
-			Movie movie = restTemplate.getForObject("http://localhost:8082/movies/" + rating.getMovieId(), Movie.class);
+			Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
 			
 			//Alternative WebClient way
 //			Movie movie = webClientBuilder.build().get().uri("http://localhost:8082/movies/"+ rating.getMovieId())
 //			.retrieve().bodyToMono(Movie.class).block();
 			
-			return new CatalogItem(movie.getName(), "Test Desc", rating.getRating());
+			return new CatalogItem(movie.getName(),movie.getDescription(), rating.getRating());
 		}).collect(Collectors.toList());
 
 	}
